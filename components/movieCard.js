@@ -1,6 +1,6 @@
 import react from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
-import {ScreenWidth} from '../config';
+import {IsIos, ScreenWidth} from '../config';
 
 function MovieCard(props) {
   return (
@@ -39,7 +39,9 @@ function MovieCard(props) {
             fontSize: 18,
             fontWeight: '600',
             marginTop: 20,
-            fontFamily: 'WixMadeforText-Regular',
+            fontFamily: IsIos
+              ? 'WixMadeforText-Regular'
+              : 'wixmadefortext-regular',
           }}>
           {props.MovieTitle}
         </Text>

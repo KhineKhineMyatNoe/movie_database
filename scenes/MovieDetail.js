@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {ScreenHeight, api_key} from '../config';
+import {IsIos, ScreenHeight, api_key} from '../config';
 import Loading from '../components/loading';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 
@@ -183,7 +183,7 @@ export default function MovieDetail(props) {
                       style={{
                         color: 'yellow',
                         fontSize: 20,
-                        fontFamily: 'Anton Regular',
+                        fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
                         marginBottom: 20,
                       }}>
                       {movieDetail.original_title}
@@ -208,7 +208,9 @@ export default function MovieDetail(props) {
                             <Text
                               style={{
                                 color: 'black',
-                                fontFamily: 'Anton Regular',
+                                fontFamily: IsIos
+                                  ? 'Anton Regular'
+                                  : 'anton-regular',
                                 fontSize: 10,
                               }}>
                               {item.name}
@@ -275,7 +277,7 @@ export default function MovieDetail(props) {
                   style={{
                     color: 'yellow',
                     fontSize: 16,
-                    fontFamily: 'Anton Regular',
+                    fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
                   }}>
                   Overview
                 </Text>
@@ -287,7 +289,7 @@ export default function MovieDetail(props) {
                   style={{
                     color: 'yellow',
                     fontSize: 16,
-                    fontFamily: 'Anton Regular',
+                    fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
                     marginBottom: 20,
                   }}>
                   Cast And Crew
@@ -327,14 +329,19 @@ export default function MovieDetail(props) {
                           <Text
                             style={{
                               fontSize: 12,
-                              fontFamily: 'WixMadeforText-Regular',
+                              fontFamily: IsIos
+                                ? 'WixMadeforText-Regular'
+                                : 'wixmadefortext-regular',
                             }}>
                             {item.original_name}
                           </Text>
                           <Text
                             style={{
                               fontSize: 8,
-                              fontFamily: 'WixMadeforText-Regular',
+
+                              fontFamily: IsIos
+                                ? 'WixMadeforText-Regular'
+                                : 'wixmadefortext-regular',
                             }}>
                             {item.character}
                           </Text>
@@ -348,7 +355,7 @@ export default function MovieDetail(props) {
                   style={{
                     color: 'yellow',
                     fontSize: 16,
-                    fontFamily: 'Anton Regular',
+                    fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
                     marginBottom: 20,
                   }}>
                   Related Movies
@@ -389,7 +396,9 @@ export default function MovieDetail(props) {
                           <Text
                             style={{
                               fontSize: 12,
-                              fontFamily: 'WixMadeforText-Regular',
+                              fontFamily: IsIos
+                                ? 'WixMadeforText-Regular'
+                                : 'wixmadefortext-regular',
                             }}>
                             {item.original_title}
                           </Text>
@@ -430,7 +439,7 @@ const styles = StyleSheet.create({
   },
   backTxt: {
     color: 'yellow',
-    fontFamily: 'Anton Regular',
+    fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
     fontSize: 18,
     //   position: 'absolute',
   },
@@ -454,6 +463,6 @@ const styles = StyleSheet.create({
   synosis: {
     color: 'yellow',
     fontSize: 14,
-    fontFamily: 'WixMadeforText-Regular',
+    fontFamily: IsIos ? 'WixMadeforText-Regular' : 'wixmadefortext-regular',
   },
 });

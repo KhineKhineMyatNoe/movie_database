@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import React, {useEffect, useState} from 'react';
-import {ScreenHeight, ScreenWidth, api_key} from '../config';
+import {IsIos, ScreenHeight, ScreenWidth, api_key} from '../config';
 import MovieCard from '../components/movieCard';
 
 export default function HomePage(props) {
@@ -132,13 +132,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     marginBottom: 10,
-    fontFamily: 'Anton Regular',
+    fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
   },
   BigTxt: {
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'Anton Regular',
+    fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
   },
   TitleContainer: {
     paddingVertical: 15,
@@ -155,6 +155,6 @@ const styles = StyleSheet.create({
   ListTitle: {
     color: 'yellow',
     fontSize: 20,
-    fontFamily: 'WixMadeforText-Regular',
+    fontFamily: IsIos ? 'WixMadeforText-Regular' : 'wixmadefortext-regular.ttf',
   },
 });

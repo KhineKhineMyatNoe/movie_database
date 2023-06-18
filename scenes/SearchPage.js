@@ -9,7 +9,7 @@ import {
   FlatList,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {ScreenHeight, api_key} from '../config';
+import {IsIos, ScreenHeight, api_key} from '../config';
 import MovieCard from '../components/movieCard';
 
 export default function SearchPage(props) {
@@ -81,7 +81,11 @@ export default function SearchPage(props) {
           marginBottom: 20,
         }}>
         <Text
-          style={{fontSize: 18, fontFamily: 'Anton Regular', color: 'yellow'}}>
+          style={{
+            fontSize: 18,
+            fontFamily: IsIos ? 'Anton Regular' : 'anton-regular',
+            color: 'yellow',
+          }}>
           Search Movie By Title or Movie
         </Text>
       </View>
@@ -107,7 +111,9 @@ export default function SearchPage(props) {
             style={{
               fontSize: 18,
               color: 'yellow',
-              fontFamily: 'WixMadeforText-Regular',
+              fontFamily: IsIos
+                ? 'WixMadeforText-Regular'
+                : 'wixmadefortext-regular',
             }}
           />
         </View>

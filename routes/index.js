@@ -1,13 +1,18 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import TabNavigator from './TabNavigator';
 import MovieDetail from '../scenes/MovieDetail';
+import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createStackNavigator();
 
 export default function AppStart() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
